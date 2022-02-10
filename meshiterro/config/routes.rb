@@ -8,7 +8,10 @@ Rails.application.routes.draw do
 
   # post_imagesコントローラー:resourcesを利用した書き方に編集
   # resourcesメソッド：ルーディングを一括して自動生成してくれる
-  resources :post_images, only: [:new, :create, :index, :show]
+  resources :post_images, only: [:new, :create, :index, :show, :destroy]
+
+  # useresコントローラー:resources利用
+  resources :users, only: [:show, :edit]
 
 
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
