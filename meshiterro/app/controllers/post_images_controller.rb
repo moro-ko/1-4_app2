@@ -15,9 +15,9 @@ class PostImagesController < ApplicationController
     end
   end
 
-  # 一覧表示
+  # 一覧表示:kaminariをインストールし、pageメソッドを利用(1ページに表示するデータの数を指定)
   def index
-    @post_images = PostImage.all
+    @post_images = PostImage.page(params[:page])
   end
 
   # 詳細画面
