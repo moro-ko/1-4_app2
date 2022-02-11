@@ -8,6 +8,8 @@ class User < ApplicationRecord
   has_many :post_images, dependent: :destroy
   # post_commentモデルとのアソシエーション「users:post_comments=1:N」
   has_many :post_comments, dependent: :destroy
+  # favoriteモデルとのアソシエーション「users:favorites=1:N」
+  has_many :favorites, dependent: :destroy
 
 
   # ユーザーのプロフィール画像を保存できるように
