@@ -10,6 +10,10 @@ class PostImage < ApplicationRecord
   # favoriteモデルとのアソシエーション「post_image:favorite=1:N」
   has_many :favorites, dependent: :destroy
 
+  # バリデーションの設定
+  validates :shop_name, presence: true
+  validates :image, presence: true
+
   def get_image
     unless image.attached?
       file_path = Rails.root.join("app/assets/images/no_image.jpg")
