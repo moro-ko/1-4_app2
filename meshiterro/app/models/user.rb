@@ -6,6 +6,9 @@ class User < ApplicationRecord
 
   # post_imageモデルとのアソシエーション(関連づけ):「usersテーブル:post imagesテーブル=1:N」
   has_many :post_images, dependent: :destroy
+  # post_commentモデルとのアソシエーション「users:post_comments=1:N」
+  has_many :post_comments, dependent: :destroy
+
 
   # ユーザーのプロフィール画像を保存できるように
   has_one_attached :profile_image

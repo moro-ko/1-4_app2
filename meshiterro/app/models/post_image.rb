@@ -5,6 +5,8 @@ class PostImage < ApplicationRecord
   # userモデルとのアソシエーション(関連づけ):「usersテーブル:post imagesテーブル=1:N」
   # (注意)post imageモデルに関連づけられるのは１つのuserモデルのため、単数形の「user」になる
   belongs_to :user
+  # post_commensモデルとのアソシエーション「post_images:post_commens=1:N」
+  has_many :post_comments, dependent: :destroy
 
   def get_image
     unless image.attached?

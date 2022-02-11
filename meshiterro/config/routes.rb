@@ -8,10 +8,16 @@ Rails.application.routes.draw do
 
   # post_imagesコントローラー:resourcesを利用した書き方に編集
   # resourcesメソッド：ルーディングを一括して自動生成してくれる
-  resources :post_images, only: [:new, :create, :index, :show, :destroy]
+  resources :post_images, only: [:new, :create, :index, :show, :destroy] do
+      # post_commentsコントローラー:resources利用
+      # post_commentsはpost_imagesに結びつく→親子関係となるため、do~endの間に記載する:「ネストする」という
+    resources :post_comments, only: [:create, :destroy]
+  end
 
   # useresコントローラー:resources利用
-  resources :users, only: [:show, :edit]
+  resources :users, only: [:show, :edit, :update]
+
+
 
 
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
